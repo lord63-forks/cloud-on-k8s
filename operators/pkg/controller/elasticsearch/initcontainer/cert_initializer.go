@@ -36,7 +36,8 @@ func NewCertInitializerContainer(imageName string, nodeCertificatesVolume volume
 	initContainerRunAsUser := defaultInitContainerRunAsUser
 	container := corev1.Container{
 		Image:           imageName,
-		ImagePullPolicy: corev1.PullAlways,
+		ImagePullPolicy: corev1.PullIfNotPresent,
+        :xa
 		Name:            CertInitializerContainerName,
 		SecurityContext: &corev1.SecurityContext{
 			Privileged: &privileged,
